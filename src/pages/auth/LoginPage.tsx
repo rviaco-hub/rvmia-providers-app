@@ -1,9 +1,19 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginRequest } from "../../services/modules/auth.service";
 import { useAuthStore } from "../../store/auth.store";
 
 export default function LoginPage() {
+
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    }
+  }, [isAuthenticated]);
+
   const navigate = useNavigate();
   const setAuth = useAuthStore((s) => s.setAuth);
 
