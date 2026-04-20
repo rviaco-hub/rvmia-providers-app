@@ -6,6 +6,7 @@ import ProductForm from "../../components/products/ProductForm";
 import ProductToolbar from "../../components/products/ProductToolbar";
 import BulkActions from "../../components/products/BulkActions";
 import ImportCSV from "../../components/products/ImportCSV";
+import ImportJSON from "../../components/products/ImportJSON";
 import { deleteProduct } from "../../services/modules/product.service";
 
 export default function ProductsPage() {
@@ -29,6 +30,7 @@ export default function ProductsPage() {
 
       <ProductForm onCreated={fetchProducts} />
       <ImportCSV refresh={fetchProducts} />
+      <ImportJSON refresh={fetchProducts} />
 
       <ProductTable products={filtered} onDelete={handleDelete} />
     </DashboardLayout>

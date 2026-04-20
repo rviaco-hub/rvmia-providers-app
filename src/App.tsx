@@ -5,9 +5,6 @@ import { useAuthStore } from "./store/auth.store";
 export default function App() {
   const hydrate = useAuthStore((state) => state.hydrate);
 
-  useEffect(() => {
-    hydrate();
-  }, []);
 
   return <AppRouter />;
 }

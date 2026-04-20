@@ -3,12 +3,14 @@ export interface Product {
   name: string;
   price: number;
   description?: string;
-  images?: string[];
-}
+  images: string[];
 
+  provider: string; // 🔥 SIEMPRE ID
+}
 export interface CreateProductDTO {
   name: string;
   price: number;
   description?: string;
   images?: string[];
 }
+
