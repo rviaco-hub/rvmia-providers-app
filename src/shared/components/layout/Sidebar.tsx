@@ -18,7 +18,11 @@ export default function Sidebar({ open }: { open: boolean }) {
         open ? "w-64" : "w-16"
       )}
     >
-      <div className="p-4 font-bold text-lg">RVMIA</div>
+      <div className="p-4 flex justify-center">
+        <div className="bg-white/5 rounded-2xl p-3 backdrop-blur-sm">
+          RVMIA
+        </div>
+      </div>
 
       <nav className="flex flex-col gap-2 p-2">
         {menu.map((item) => (

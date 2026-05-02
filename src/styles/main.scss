@@ -1,19 +1,15 @@
+@use "./variables";
 @use "./base/reset";
-@use "./base/variables";
 @use "./base/globals";
 
 @use "./auth/auth";
 
 @use "./layout/layout";
-
 @use "./layout/cards";
-
 @use "./layout/table";
-
 @use "./layout/toolbar";
-
 @use "./layout/badge";
-
+@use "./layout/products";
 
 @use "./components/buttons";
 @use "./components/progress";

@@ -13,18 +13,28 @@ api.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${token}`;
   }
 
+  console.log(token);
+  
+
   return config;
 });
 
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 403) {
-      console.warn("No autorizado (rol)");
+    
+    if (error.response?.status === 400) {
+      useAuthStore.getState().logout();
+      window.location.href = "/";
     }
+
     if (error.response?.status === 401) {
       useAuthStore.getState().logout();
       window.location.href = "/";
+    }
+    
+    if (error.response?.status === 403) {
+      console.warn("No autorizado (rol)");
     }
 
     return Promise.reject(error);

@@ -1,5 +1,79 @@
+@use "./variables";
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
 body {
+  margin: 0;
   font-family: system-ui, sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background: var(--bg-soft);
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-soft);
+  border-radius: var(--radius);
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+/* FILE INPUT GLOBAL */
+input[type="file"] {
+  width: 100%;
+  padding: 16px;
+  border: 2px dashed var(--secondary-hardsoft);
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+input[type="file"]:hover {
+  border-color: var(--success);
+  background: var(--bg-elevated);
+}
+
+input[type="file"]:focus {
+  outline: none;
+  border-color: var(--success);
+  box-shadow: var(--glow-primary);
+}
+
+input[type="file"]::file-selector-button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  background: var(--success);
+  color: var(--text);
+  border: none;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: var(--primary);
+}
+
+.product-form {
+  margin-bottom: 16px;
 }

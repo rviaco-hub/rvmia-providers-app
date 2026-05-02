@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api/api";
+import { validateRegister } from "../../utils/validate";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -22,12 +23,23 @@ export default function RegisterPage() {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const errorMsg = validateRegister(
+      form.name,
+      form.email,
+      form.password
+    );
+
+    if (errorMsg) {
+      alert(errorMsg);
+      return;
+    }
+
     try {
       await api.post("/auth/register", form);
       alert("Usuario creado");
       navigate("/");
-    } catch (err) {
-      alert("Error al registrar");
+    } catch (err: any) {
+      alert(err.response?.data?.message || "Error al registrar");
     }
   };
 

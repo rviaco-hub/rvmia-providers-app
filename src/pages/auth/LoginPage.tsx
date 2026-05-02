@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginRequest } from "../../services/modules/auth.service";
 import { useAuthStore } from "../../store/auth.store";
+import { validateLogin } from "../../utils/validate";
 
 export default function LoginPage() {
 
@@ -21,16 +22,23 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const res = await loginRequest({ email, password });
-      setAuth(res.data.token, res.data.user);
-      navigate("/dashboard");
-    } catch {
-      alert("Error login");
-    }
-  };
+  const errorMsg = validateLogin(email, password);
+
+  if (errorMsg) {
+    alert(errorMsg);
+    return;
+  }
+
+  try {
+    const res = await loginRequest({ email, password });
+    setAuth(res.data.token, res.data.user);
+    navigate("/dashboard");
+  } catch (error: any) {
+    alert(error.response?.data?.message || "Error al iniciar sesión");
+  }
+};
 
   return (
     <div className="auth-container">
