@@ -5,13 +5,14 @@
   flex-wrap: wrap;
 
   input {
-    background: var(--bg-soft);
-    border: 1px solid var(--glove);
+    background: var(--primary-soft);
+    border: 1px solid var(--border);
     padding: 10px;
     border-radius: var(--radius);
-    color: var(--bg-heavy);
+    color: var(--text-dark);
   }
   input:hover{
     background: var(--bg);
+    color: var(--text);
   }
 }

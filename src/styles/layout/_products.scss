@@ -7,7 +7,7 @@
   h1 {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--bg-heavy);
+    color: var(--text);
     margin: 0;
   }
 }
@@ -15,16 +15,17 @@
 .toolbar,
 .bulk {
   margin-bottom: 10px;
-  color: var(--bg-heavy);
-}
-
-.bulk {
+  background: var(--primary-muted);
+  color: var(--primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--bg-soft);
   padding: 16px 20px;
   border-radius: 14px;
+}
+
+.bulk input{
+  background: var(--primary);
 }
 
 .bulk button {
@@ -96,21 +97,21 @@ input,
 textarea {
   width: 100%;
   padding: 14px;
-  border: 1px solid var(--bg-heavy);
+  border: 1px solid var(--border);
   border-radius: 12px;
   font-size: 14px;
   outline: none;
   transition: 0.2s;
 
   &:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--glove);
+    border-color: var(--border-strong);
+    box-shadow: 0 0 0 3px var(--info);
   }
 }
 
 button {
-  background: var(--bg);
-  color: var(--bg-heavy);
+  background: var(--primary);
+  color: var(--text);
   border: none;
   padding: 12px 18px;
   border-radius: 12px;
@@ -119,7 +120,7 @@ button {
   transition: 0.2s;
 
   &:hover {
-    background: #1d4ed8;
+    background: var(--bg-elevated);
   }
 }
 

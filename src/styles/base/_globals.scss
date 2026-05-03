@@ -24,7 +24,7 @@ body {
 
 *::-webkit-scrollbar-thumb {
   background: var(--border-soft);
-  border-radius: var(--radius);
+  border-radius: var(--info);
 }
 
 input {
@@ -35,10 +35,10 @@ input {
 input[type="file"] {
   width: 100%;
   padding: 16px;
-  border: 2px dashed var(--secondary-hardsoft);
-  border-radius: var(--radius);
-  background: var(--bg-soft);
-  color: var(--text);
+  border: 2px dashed var(--accent);
+  border-radius: var(--info);
+  background: var(--primary-muted);
+  color: var(--text-dark);
   font-size: 14px;
   cursor: pointer;
   transition: var(--transition);
@@ -48,6 +48,7 @@ input[type="file"] {
 input[type="file"]:hover {
   border-color: var(--success);
   background: var(--bg-elevated);
+  color: var(--text);
 }
 
 input[type="file"]:focus {
@@ -71,7 +72,7 @@ input[type="file"]::file-selector-button {
 }
 
 input[type="file"]::file-selector-button:hover {
-  background: var(--primary);
+  background: var(--success);
 }
 
 .product-form {
