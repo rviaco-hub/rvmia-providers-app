@@ -78,6 +78,16 @@ export default function DashboardLayout({ children }: Props) {
             {!collapsed && <span>Dashboard</span>}
           </NavLink>
 
+          <NavLink to="/perfil" onClick={handleNavigate}>
+            <Package size={20} />
+            {!collapsed && <span>Perfil</span>}
+          </NavLink>
+
+          <NavLink to="/count" onClick={handleNavigate}>
+            <Package size={20} />
+            {!collapsed && <span>Cuenta</span>}
+          </NavLink>
+
           <NavLink to="/products" onClick={handleNavigate}>
             <Package size={20} />
             {!collapsed && <span>Productos</span>}

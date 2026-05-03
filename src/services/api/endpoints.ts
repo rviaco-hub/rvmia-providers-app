@@ -1,5 +1,5 @@
 export const ENDPOINTS = {
-  SERVER: "http://localhost:4000/api",
+  SERVER: "https://store-rvmia-backend.onrender.com/api",
   AUTH: {
     LOGIN: "/auth/login",
     LOGOUT: "/auth/logout",
