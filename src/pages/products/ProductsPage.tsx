@@ -13,10 +13,16 @@ import "../../styles/main.scss";
 
 export default function ProductsPage() {
   const { filtered, fetchProducts } = useProductStore();
+  const store = useProductStore();
 
   useEffect(() => {
     fetchProducts();
   }, []);
+
+
+  useEffect(() => {
+    console.log("Store completo:", store);
+  }, [store]);
 
   const handleDelete = async (id: string) => {
     await deleteProduct(id);
@@ -24,25 +30,25 @@ export default function ProductsPage() {
   };
 
   return (
-  <DashboardLayout>
-    <div className="products-page">
-      <h1>Gestión de Productos</h1>
+    <DashboardLayout>
+      <div className="products-page">
+        <h1>Gestión de Productos</h1>
 
-      <ProductToolbar />
-      <BulkActions refresh={fetchProducts} />
+        <ProductToolbar />
+        <BulkActions refresh={fetchProducts} />
 
-      <div className="products-grid">
-        <div className="products-panel">
-          <ProductTable products={filtered} onDelete={handleDelete} />
-        </div>
-
-        <div>
-          <ProductForm onCreated={fetchProducts} />
-          <ImportCSV refresh={fetchProducts} />
-          <ImportJSON refresh={fetchProducts} />
+        <div className="products-grid">
+          <div className="products-panel">
+            <ProductTable products={filtered} onDelete={handleDelete} />
+          </div>
+{/* formularios de envíos aquí */}
+          <div> 
+            <ProductForm onCreated={fetchProducts} />
+            <ImportCSV refresh={fetchProducts} />
+            <ImportJSON refresh={fetchProducts} />
+          </div>
         </div>
       </div>
-    </div>
-  </DashboardLayout>
-);
+    </DashboardLayout>
+  );
 }

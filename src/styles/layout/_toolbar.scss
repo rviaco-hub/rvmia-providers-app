@@ -6,10 +6,10 @@
 
   input {
     background: var(--bg-soft);
-    border: 1px solid var(--border);
+    border: 1px solid var(--glove);
     padding: 10px;
     border-radius: var(--radius);
-    color: var(--text);
+    color: var(--bg-heavy);
   }
   input:hover{
     background: var(--bg);

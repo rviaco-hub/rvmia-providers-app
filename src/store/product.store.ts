@@ -45,3 +45,7 @@ export const useProductStore = create<ProductState>((set, get) => ({
 
   clearSelection: () => set({ selected: [] }),
 }));
+
+useProductStore.subscribe((state) => {
+  console.log("STORE UPDATE:", state);
+});

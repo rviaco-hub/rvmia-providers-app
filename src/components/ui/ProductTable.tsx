@@ -16,6 +16,7 @@ export default function ProductTable({
         <tr>
           <th></th>
           <th>Nombre</th>
+          <th>Descripción</th>
           <th>Precio</th>
           <th></th>
         </tr>
@@ -31,8 +32,8 @@ export default function ProductTable({
                 onChange={() => toggleSelect(p._id)}
               />
             </td>
-
             <td>{p.name}</td>
+            <td>{p.description}</td>
             <td>${p.price}</td>
 
             <td>

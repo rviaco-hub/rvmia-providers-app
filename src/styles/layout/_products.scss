@@ -7,7 +7,7 @@
   h1 {
     font-size: 2rem;
     font-weight: 700;
-    color: #0f172a;
+    color: var(--bg-heavy);
     margin: 0;
   }
 }
@@ -15,7 +15,37 @@
 .toolbar,
 .bulk {
   margin-bottom: 10px;
+  color: var(--bg-heavy);
 }
+
+.bulk {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-soft);
+  padding: 16px 20px;
+  border-radius: 14px;
+}
+
+.bulk button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--danger-soft);
+  color: var(--danger);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.bulk button:hover {
+  background: var(--danger);
+  color: white;
+}
+
 
 .products-grid {
   display: grid;
@@ -34,19 +64,19 @@
   background: white;
   border-radius: 18px;
   padding: 24px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px var(--primary-muted);
 }
 
 .card {
   background: white;
   border-radius: 18px;
   padding: 24px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--primary-muted);
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
 
   h3 {
     margin-bottom: 16px;
-    color: #0f172a;
+    color: var(--bg-heavy);
     font-size: 1.2rem;
   }
 }
@@ -66,21 +96,21 @@ input,
 textarea {
   width: 100%;
   padding: 14px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--bg-heavy);
   border-radius: 12px;
   font-size: 14px;
   outline: none;
   transition: 0.2s;
 
   &:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--glove);
   }
 }
 
 button {
-  background: #2563eb;
-  color: white;
+  background: var(--bg);
+  color: var(--bg-heavy);
   border: none;
   padding: 12px 18px;
   border-radius: 12px;
@@ -93,15 +123,6 @@ button {
   }
 }
 
-.bulk {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #eff6ff;
-  padding: 16px 20px;
-  border-radius: 14px;
-}
-
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -110,23 +131,23 @@ button {
   background: white;
 
   thead {
-    background: #f8fafc;
+    background: whitesmoke;
   }
 
   th {
     padding: 18px;
     text-align: left;
     font-weight: 700;
-    color: #334155;
+    color: var(--bg-heavy);
   }
 
   td {
     padding: 18px;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid var(--bg-heavy);
   }
 
   tbody tr:hover {
-    background: #f8fafc;
+    background: whitesmoke;
   }
 }
 

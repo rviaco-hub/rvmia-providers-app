@@ -6,9 +6,11 @@ import {
   ShoppingCart,
   Menu,
   ChevronLeft,
+  LogOut
 } from "lucide-react";
 
 import logo from '../../assets/3-removebg-preview.png'
+import { useAuthStore } from "../../store/auth.store";
 
 type Props = {
   children: React.ReactNode;
@@ -23,6 +25,17 @@ export default function DashboardLayout({ children }: Props) {
     if (window.innerWidth <= 768) {
       setCollapsed(true);
     }
+  };
+
+  const logout = useAuthStore((s: any) => s.logout);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    sessionStorage.clear();
+
+    if (logout) logout();
+
+    window.location.href = "/";
   };
 
   return (
@@ -75,6 +88,12 @@ export default function DashboardLayout({ children }: Props) {
             {!collapsed && <span>Órdenes</span>}
           </NavLink>
         </nav>
+        <div className="sidebar-footer">
+          <button onClick={handleLogout} className="logout-btn">
+            <LogOut size={20} />
+            {!collapsed && <span>Cerrar sesión</span>}
+          </button>
+        </div>
       </aside>
 
       <main className="content">{children}</main>

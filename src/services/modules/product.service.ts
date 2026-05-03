@@ -1,57 +1,43 @@
 import { api } from "../api/api";
 import { Product } from "../../types/product.types";
-import { useAuthStore } from "../../store/auth.store";
 
 /* =========================
-   GET PRODUCTS (SMART)
+   GET PRODUCTS
 ========================= */
 export const getProducts = async (): Promise<Product[]> => {
-  const user = useAuthStore.getState().user;
+  try {
+    const res = await api.get("/products/me");
 
-  const res = await api.get("/products/me"); 
-  let products: Product[] = res.data.data;
-
-  return products;
+    return res.data?.data || [];
+  } catch (error) {
+    console.error("GET PRODUCTS ERROR:", error);
+    return [];
+  }
 };
 
 /* =========================
    CREATE PRODUCT
 ========================= */
 export const createProduct = async (data: any) => {
-  const user = useAuthStore.getState().user;
-
-  const payload = {
-    ...data,
-  };
-
-  const res = await api.post("/products", payload);
+  const res = await api.post("/products", data);
   return res.data;
 };
 
 /* =========================
-   IMPORT JSON (PRO FIX)
+   IMPORT JSON
 ========================= */
 export const importProductsJSON = async (products: any[]) => {
-  const user = useAuthStore.getState().user;
-
-  const payload = products.map((p) => ({
-    ...p,
-    provider: user?._id, // 🔥 CLAVE
-  }));
-
-  const res = await api.post("/products/import/json", payload);
-
+  const res = await api.post("/products/import/json", products);
   return res.data;
 };
 
 /* =========================
-   UPLOAD IMAGE (FIX GRAVE)
+   UPLOAD IMAGE
 ========================= */
 export const uploadImage = async (file: File) => {
   const formData = new FormData();
   formData.append("image", file);
 
-  
   const res = await api.post("/products/upload", formData);
 
   return res.data.url;
@@ -66,6 +52,6 @@ export const deleteProduct = async (id: string) => {
 
 export const deleteProductsBulk = async (ids: string[]) => {
   await api.delete("/products/bulk", {
-    data: { ids },
+    data: { ids }
   });
 };
